@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 80 33" width="80" height="33">
+	<title>Path 440</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #7bb542;stroke-linecap:round } 
+	</style>
+	<path id="Path 440" class="shp0" d="M0.98 16.7L79.02 16.7"/>
+	<path id="Path 441" class="shp0" d="M61.77 1L79.02 16.7C79.02 16.7 72.62 21.62 62.87 31.37"/>
+</svg>

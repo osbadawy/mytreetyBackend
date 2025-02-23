@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mytreety API Documentation",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/v2/policies/seller": {
+            "get": {
+                "tags": [
+                    "Website|Policies"
+                ],
+                "summary": "Return seller policy",
+                "operationId": "4b8cc0e068e33c85eddb3ad4df09cdc4",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/v2/policies/privacy": {
+            "get": {
+                "tags": [
+                    "Website|Policies"
+                ],
+                "summary": "Return privacy policy",
+                "operationId": "4b328e544966f1fdee9c95b2aa1ec1b0",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/v2/policies/buyer": {
+            "get": {
+                "tags": [
+                    "Website|Policies"
+                ],
+                "summary": "Return buyer policy",
+                "operationId": "d214ba42d664351696985f334b0153e7",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/v2/policies/charity": {
+            "get": {
+                "tags": [
+                    "Website|Policies"
+                ],
+                "summary": "Return charity policy",
+                "operationId": "fb022e62f6efc950e847485e84f2bbee",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/v2/policies/terms": {
+            "get": {
+                "tags": [
+                    "Website|Policies"
+                ],
+                "summary": "Return terms policy",
+                "operationId": "c7e0c1fe6cd605fe948e2699c81f5fca",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/v2/policies/imprint": {
+            "get": {
+                "tags": [
+                    "Website|Policies"
+                ],
+                "summary": "Return imprint policy",
+                "operationId": "a5399932b95c5db1473324df97823fc6",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    }
+}

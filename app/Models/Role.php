@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use App;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+/**
+ * @mixin IdeHelperRole
+ */
+class Role extends Model
+{
+    protected $with = ['role_translations'];
+
+    public function getTranslation($field = '', $lang = false)
+    {
+        $lang = !$lang ? App::getLocale() : $lang;
+        $role_translation = $this->role_translations->where('lang', $lang)->first();
+        return $role_translation != null ? $role_translation->$field : $this->$field;
+    }
+
+    public function role_translations(): HasMany
+    {
+        return $this->hasMany(RoleTranslation::class);
+    }
+}

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PostItems>
+    <InventoryItem>
+        <handle>
+			product_handle
+		</handle>
+        <title>
+			Product 1 name
+		</title>
+        <body_html>
+			Product 1 description
+		</body_html>
+        <option1_name>
+			General Sizes 
+		</option1_name>
+        <option1_value>
+			40
+		</option1_value>
+
+        <option2_name>
+			Color
+		</option2_name>
+        <option2_value>
+			Blue
+		</option2_value>
+        
+        <option3_name>
+		</option3_name>
+        <option3_value>
+		</option3_value>
+
+        <variant_sku>
+			SKU_01
+		</variant_sku>
+        <variant_price>
+			50.00
+		</variant_price>
+        <shipping_cost>
+			5.00
+		</shipping_cost>
+        <est_shipping_days>
+			2
+		</est_shipping_days>
+        <variant_inventory_qty>
+			10
+		</variant_inventory_qty>
+        <where_distributed>
+			Germany
+		</where_distributed>
+        <where_manufactured>
+			Germany
+		</where_manufactured>
+        <image_src>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_src>
+        <image_2>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_2>
+        <image_3>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_3>
+        <image_4>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_4>
+        <image_5>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_5>
+        <image_6>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_6>
+
+    </InventoryItem>
+    <InventoryItem>
+        <handle>
+			product_handle
+		</handle>
+        <title>
+			Product 2 name
+		</title>
+        <body_html>
+			Product 2 description
+		</body_html>
+        <option1_name>
+			General Sizes 
+		</option1_name>
+        <option1_value>
+			45
+		</option1_value>
+
+        <option2_name>
+			Color
+		</option2_name>
+        <option2_value>
+			blue
+		</option2_value>
+        
+        <option3_name>
+		</option3_name>
+        <option3_value>
+		</option3_value>
+
+        <variant_SKU>
+			SKU_02
+		</variant_SKU>
+        <variant_price>
+			50.00
+		</variant_price>
+        <shipping_cost>
+			5.00
+		</shipping_cost>
+        <est_shipping_days>
+			2
+		</est_shipping_days>
+        <variant_inventory_qty>
+			10
+		</variant_inventory_qty>
+        <where_distributed>
+			Germany
+		</where_distributed>
+        <where_manufactured>
+			Germany
+		</where_manufactured>
+        <image_src>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_src>
+        <image_2>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_2>
+        <image_3>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_3>
+        <image_4>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_4>
+        <image_5>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_5>
+        <image_6>
+			https://cdn.shopify.com/s/files/1/0572/9399/6224/products/BohoHat_600x.png
+		</image_6>
+
+    </InventoryItem>
+
+
+
+</PostItems>
