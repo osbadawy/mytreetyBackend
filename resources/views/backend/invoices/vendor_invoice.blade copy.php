@@ -1,0 +1,252 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{  translate('Vendor Invoice') }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
+
+	<style media="all">
+        @page {
+			margin: 0;
+			padding:0;
+		}
+		body{
+			font-size: 0.875rem;
+            font-family: '<?php echo  $font_family ?>';
+            font-weight: normal;
+            direction: <?php echo  $direction ?>;
+            text-align: <?php echo  $text_align ?>;
+			padding:0;
+			margin:0;
+		}
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: #EEF5E5;
+          color: #000;
+          text-align: center;
+          margin-top: 40%;
+        }
+		.gry-color *,
+		.gry-color{
+			color:#000;
+		}
+		table{
+			width: 100%;
+		}
+		table th{
+			font-weight: normal;
+		}
+		table.padding th{
+			padding: .25rem .7rem;
+		}
+		table.padding td{
+			padding: .25rem .7rem;
+		}
+		table.sm-padding td{
+			padding: .1rem .7rem;
+		}
+		.border-bottom td,
+		.border-bottom th{
+			border-bottom:1px solid #EEF5E5;
+		}
+		.text-left{
+			text-align:<?php echo  $text_align ?>;
+		}
+		.text-right{
+			text-align:<?php echo  $not_text_align ?>;
+		}
+	</style>
+</head>
+<body>
+	<div>
+
+		@php
+			$logo = get_setting('header_logo');
+		@endphp
+
+		<div style="background: #EEF5E5;padding: 1rem;">
+			<table>
+				<tr>
+					<td>
+						@if($logo != null)
+							<img src="{{ uploaded_asset($logo) }}" height="30" style="display:inline-block;">
+						@else
+							<img src="{{ static_asset('assets/img/logo.png') }}" height="30" style="display:inline-block;">
+						@endif
+					</td>
+					<td style="font-size: 1.5rem;" class="text-right strong">{{  translate('Vendor Invoice') }}</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+                    {{-- {{ get_setting('site_name') }}  --}}
+					<td style="font-size: 1rem;" class="strong"> <br>
+                        <span style="color: #7AB541">W.</span> https://www.mytreety.com <br>
+
+                        <span style="color: #7AB541">T.</span> (+49)15227826982 <br>
+
+                        <span style="color: #7AB541">A.</span> Röpkestrasse 35, 40235, Düsseldorf, Germany <br>
+
+                        <span style="color: #7AB541">Registration Number:</span> HRB 95195 (Amtsgericht Düsseldorf) <br>
+                        <span style="color: #7AB541">VAT Number</span> DE349232308 <br><br>
+
+                    </td>
+					<td class="text-right"></td>
+				</tr>
+				<tr>
+                    {{-- {{ get_setting('contact_address') }} --}}
+					<td class="gry-color small"></td>
+					<td class="text-right"></td>
+				</tr>
+				<tr>
+                    {{-- {{  translate('Email') }}: {{ get_setting('contact_email') }} --}}
+					<td class="gry-color small"></td>
+					<td class="text-right small"><span class="gry-color small">{{  translate('Order ID') }}:</span> <span class="strong">{{ $order->code }}</span></td>
+				</tr>
+				<tr>
+                    {{-- {{  translate('Phone') }}: {{ get_setting('contact_phone') }} --}}
+					<td class="gry-color small"></td>
+					<td class="text-right small"><span class="gry-color small">{{  translate('Order Date') }}:</span> <span class=" strong">{{ date('d-m-Y', $order->date) }}</span></td>
+				</tr>
+			</table>
+
+		</div>
+
+		<div style="padding: 1rem;padding-bottom: 0">
+            <table>
+				@php
+					$shipping_address = json_decode($order->shipping_address);
+				@endphp
+				<tr><td class="strong small gry-color">{{ translate('Vendor Details') }}:</td></tr>
+				<tr><td class="strong">{{ $order->name }}</td></tr>
+				<tr><td class="gry-color small">{{ $shipping_address->address }}, {{ $shipping_address->city }}, {{ $shipping_address->postal_code }}, {{ $shipping_address->country }}</td></tr>
+				<tr><td class="gry-color small">{{ translate('Email') }}: {{ $shipping_address->email }}</td></tr>
+				<tr><td class="gry-color small">{{ translate('Phone') }}: {{ $shipping_address->phone }}</td></tr>
+			</table>
+		</div>
+
+	    <div style="padding: 1rem;">
+			<table class="padding text-left small border-bottom">
+				<thead>
+	                <tr class="gry-color" style="background: #EEF5E5;">
+	                    <th width="35%" class="text-left">{{ translate('Product Name') }}</th>
+						{{-- <th width="15%" class="text-left">{{ translate('Delivery Type') }}</th> --}}
+	                    <th width="10%" class="text-left">{{ translate('Qty') }}</th>
+	                    <th width="15%" class="text-left">{{ translate('Unit Price') }}</th>
+	                    {{-- <th width="10%" class="text-left">{{ translate('Tax') }}</th> --}}
+	                    <th width="15%" class="text-right">{{ translate('Total') }}</th>
+	                </tr>
+				</thead>
+				<tbody class="strong">
+	                @foreach ($order->orderDetails as $key => $orderDetail)
+		                @if ($orderDetail->product != null)
+							<tr class="">
+								<td>{{ $orderDetail->product->name }} @if($orderDetail->variation != null) ({{ $orderDetail->variation }}) @endif</td>
+								{{-- <td>
+									@if ($order->shipping_type != null && $order->shipping_type == 'home_delivery')
+										{{ translate('Home Delivery') }}
+									@elseif ($order->shipping_type == 'pickup_point')
+										@if ($order->pickup_point != null)
+											{{ $order->pickup_point->getTranslation('name') }} ({{ translate('Pickip Point') }})
+										@endif
+									@endif
+								</td> --}}
+								<td class="">{{ $orderDetail->quantity }}</td>
+								<td class="currency">{{ single_price($orderDetail->price/$orderDetail->quantity) }}</td>
+								{{-- <td class="currency">{{ single_price($orderDetail->tax/$orderDetail->quantity) }}</td> --}}
+			                    <td class="text-right currency">{{ single_price($orderDetail->price+$orderDetail->tax) }}</td>
+							</tr>
+		                @endif
+					@endforeach
+	            </tbody>
+			</table>
+		</div>
+
+	    <div style="padding:0 1.5rem;">
+	        <table class="text-right sm-padding small strong">
+	        	<thead>
+	        		<tr>
+	        			<th width="60%"></th>
+	        			<th width="40%"></th>
+	        		</tr>
+	        	</thead>
+		        <tbody>
+			        <tr>
+			            <td class="text-left">
+                            @php
+                                $removedXML = '<?xml version="1.0" encoding="UTF-8"?>';
+                            @endphp
+                            {!! str_replace($removedXML,"", QrCode::size(100)->generate($order->code)) !!}
+			            </td>
+			            <td>
+					        <table class="text-right sm-padding small strong">
+						        <tbody>
+							        <tr>
+							            <th class="gry-color text-left">{{ translate('Sub Total') }}</th>
+							            <td class="currency">{{ single_price($order->orderDetails->sum('price')) }}</td>
+							        </tr>
+							        <tr>
+							            <th class="gry-color text-left">{{ translate('Shipping Cost') }}</th>
+							            <td class="currency">{{ single_price($order->orderDetails->sum('shipping_cost')) }}</td>
+							        </tr>
+							        {{-- <tr class="border-bottom">
+							            <th class="gry-color text-left">{{ translate('Total Tax') }}</th>
+							            <td class="currency">{{ single_price($order->orderDetails->sum('tax')) }}</td>
+							        </tr> --}}
+				                    {{-- <tr class="border-bottom">
+							            <th class="gry-color text-left">{{ translate('Coupon Discount') }}</th>
+							            <td class="currency">{{ single_price($order->coupon_discount) }}</td>
+							        </tr> --}}
+                                    <tr>
+							            <th class="text-left strong" >{{ translate('Mytreety commission') }}</th>
+                                        @php $price=($order->grand_total-(0.19 * $order->grand_total))*0.15+ 0.19*(($order->grand_total-(0.19 * $order->grand_total))*0.15)
+
+                                        @endphp
+							            <td class="currency">{{ single_price($price) }}<br>
+
+                                        </td>
+
+							        </tr>
+							        <tr>
+							            <th class="text-left strong" >{{ translate('Amount due') }}</th>
+							            <td class="currency">{{ single_price($order->grand_total - $price) }}<br>
+
+                                        </td>
+
+							        </tr>
+                                    <tr>
+							            <th class="text-left strong"></th>
+							            <td class="currency"> <span style="color: red">Mytreety aims to send your amount due within 5 business days from the creation of the invoice.</span>
+
+
+                                        </td>
+
+							        </tr>
+
+
+						        </tbody>
+						    </table>
+			            </td>
+			        </tr>
+		        </tbody>
+		    </table>
+	    </div>
+
+        <footer class="footer">
+            <div >
+                Please change this text and put instead “This invoice is only provisional and might have errors, if so please contact the Mytreety team on <a href="mailto:vendor@mytreety.com" >vendor@mytreety.com</a>               <br>
+                <a href="{{url('/seller-policy')}}">Seller policy</a> &nbsp;
+                <a href="{{url('/buyer-policy')}}">Buyer policy</a> &nbsp;
+                <a href="{{url('/terms')}}">General Terms And Conditions</a> &nbsp;
+                <a href="{{url('/privacypolicy')}}">Privacy policy </a> &nbsp;
+
+
+            </div>
+        </footer>
+
+	</div>
+</body>
+</html>

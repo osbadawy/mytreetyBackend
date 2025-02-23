@@ -1,0 +1,4702 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Mytreety Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="./css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+
+    <script src="./js/theme-default-3.29.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="./images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="account-management">
+                    <a href="#account-management">Account management</a>
+                </li>
+                                    <ul id="tocify-subheader-account-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="account-management-POSTapi-v2-auth-vendor_login">
+                        <a href="#account-management-POSTapi-v2-auth-vendor_login">Vendor Login.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="account-management-GETapi-v2-auth-user">
+                        <a href="#account-management-GETapi-v2-auth-user">Get Profile.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="account-management-GETapi-v2-auth-logout">
+                        <a href="#account-management-GETapi-v2-auth-logout">Logout.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="account-management-POSTapi-v2-profile-update">
+                        <a href="#account-management-POSTapi-v2-profile-update">Update profile.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="account-management-POSTapi-v2-profile-update-image">
+                        <a href="#account-management-POSTapi-v2-profile-update-image">Update profile picture.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="categories">
+                    <a href="#categories">Categories</a>
+                </li>
+                                    <ul id="tocify-subheader-categories" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="categories-GETapi-v2-sub-categories--id-">
+                        <a href="#categories-GETapi-v2-sub-categories--id-">Get all sub categories.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="categories-GETapi-v2-categories">
+                        <a href="#categories-GETapi-v2-categories">Get all categories.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="countries">
+                    <a href="#countries">Countries</a>
+                </li>
+                                    <ul id="tocify-subheader-countries" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="countries-GETapi-v2-countries">
+                        <a href="#countries-GETapi-v2-countries">Get all Countries.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-5" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi--fallbackPlaceholder-">
+                        <a href="#endpoints-GETapi--fallbackPlaceholder-">GET api/{fallbackPlaceholder}</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-vendor-orders--order_code--download">
+                        <a href="#endpoints-GETapi-v2-vendor-orders--order_code--download">GET api/v2/vendor/orders/{order_code}/download</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-vendor-commission_history--order_code--download">
+                        <a href="#endpoints-GETapi-v2-vendor-commission_history--order_code--download">GET api/v2/vendor/commission_history/{order_code}/download</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-6" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="messages">
+                    <a href="#messages">Messages</a>
+                </li>
+                                    <ul id="tocify-subheader-messages" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="messages-GETapi-v2-messages">
+                        <a href="#messages-GETapi-v2-messages">Get all message.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="messages-GETapi-v2-messages--id-">
+                        <a href="#messages-GETapi-v2-messages--id-">Get message Details.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="messages-POSTapi-v2-messages-save">
+                        <a href="#messages-POSTapi-v2-messages-save">Store new message.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-7" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="newsletter">
+                    <a href="#newsletter">Newsletter</a>
+                </li>
+                                    <ul id="tocify-subheader-newsletter" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="newsletter-POSTapi-v2-newsletter-subscribe">
+                        <a href="#newsletter-POSTapi-v2-newsletter-subscribe">Subscribe to the newsletter.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-8" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="products">
+                    <a href="#products">Products</a>
+                </li>
+                                    <ul id="tocify-subheader-products" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="products-GETapi-v2-products-best-seller">
+                        <a href="#products-GETapi-v2-products-best-seller">Get best sellers products.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-9" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="sustainability">
+                    <a href="#sustainability">Sustainability</a>
+                </li>
+                                    <ul id="tocify-subheader-sustainability" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="sustainability-GETapi-v2-sustainabilities">
+                        <a href="#sustainability-GETapi-v2-sustainabilities">Get All Sustainability icons.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="sustainability-GETapi-v2-charities">
+                        <a href="#sustainability-GETapi-v2-charities">Get All Charities.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-10" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="upload">
+                    <a href="#upload">Upload</a>
+                </li>
+                                    <ul id="tocify-subheader-upload" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="upload-POSTapi-v2-aws-create-signedurl">
+                        <a href="#upload-POSTapi-v2-aws-create-signedurl">Create Signed Url.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-11" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="vendor-dashboard">
+                    <a href="#vendor-dashboard">Vendor Dashboard</a>
+                </li>
+                                    <ul id="tocify-subheader-vendor-dashboard" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-products">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-products">Get Products list.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-commission_history">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-commission_history">Get Commission history list.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-orders">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-orders">Get Vendor Orders list.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-POSTapi-v2-vendor-orders--order_code--update_tracking_code">
+                        <a href="#vendor-dashboard-POSTapi-v2-vendor-orders--order_code--update_tracking_code">Update tracking code.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-orders--order_code-">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-orders--order_code-">Get Order Details.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-products-reviews">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-products-reviews">Get Products reviews list.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-products-reviews--id-">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-products-reviews--id-">Get Review Details.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-dashboard-GETapi-v2-vendor-dashboard">
+                        <a href="#vendor-dashboard-GETapi-v2-vendor-dashboard">Get Dashboard data.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="./collection.json">View Postman collection</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: June 26 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.
+You can change language of the api by adding <b>App-Language</b> header. You can add values like: <b>en,de</b></p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://mytreety.test</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+
+        <h1 id="account-management">Account management</h1>
+
+    
+
+            <h2 id="account-management-POSTapi-v2-auth-vendor_login">Vendor Login.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-auth-vendor_login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/auth/vendor_login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"example@email.com\",
+    \"password\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/auth/vendor_login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "example@email.com",
+    "password": "123456"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-auth-vendor_login">
+</span>
+<span id="execution-results-POSTapi-v2-auth-vendor_login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-auth-vendor_login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-auth-vendor_login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-auth-vendor_login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-auth-vendor_login"></code></pre>
+</span>
+<form id="form-POSTapi-v2-auth-vendor_login" data-method="POST"
+      data-path="api/v2/auth/vendor_login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-auth-vendor_login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/auth/vendor_login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-v2-auth-vendor_login"
+               value="example@email.com"
+               data-component="body" hidden>
+    <br>
+<p>The email of the vendor.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-v2-auth-vendor_login"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>The password of the vendor.</p>
+        </p>
+        </form>
+
+            <h2 id="account-management-GETapi-v2-auth-user">Get Profile.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-auth-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/auth/user" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/auth/user"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-auth-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 598
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-auth-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-auth-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-auth-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-auth-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-auth-user"></code></pre>
+</span>
+<form id="form-GETapi-v2-auth-user" data-method="GET"
+      data-path="api/v2/auth/user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-auth-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/auth/user</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v2-auth-user" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v2-auth-user"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="account-management-GETapi-v2-auth-logout">Logout.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-auth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/auth/logout" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/auth/logout"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-auth-logout">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 599
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-auth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-auth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-auth-logout"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-auth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-auth-logout"></code></pre>
+</span>
+<form id="form-GETapi-v2-auth-logout" data-method="GET"
+      data-path="api/v2/auth/logout"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-auth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/auth/logout</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v2-auth-logout" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v2-auth-logout"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="account-management-POSTapi-v2-profile-update">Update profile.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-profile-update">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/profile/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Mohamed\",
+    \"password\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/profile/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Mohamed",
+    "password": "123456"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-profile-update">
+</span>
+<span id="execution-results-POSTapi-v2-profile-update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-profile-update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-profile-update"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-profile-update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-profile-update"></code></pre>
+</span>
+<form id="form-POSTapi-v2-profile-update" data-method="POST"
+      data-path="api/v2/profile/update"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-profile-update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/profile/update</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-v2-profile-update"
+               value="Mohamed"
+               data-component="body" hidden>
+    <br>
+<p>optional New name of the user.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-v2-profile-update"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>optional New password of the user.</p>
+        </p>
+        </form>
+
+            <h2 id="account-management-POSTapi-v2-profile-update-image">Update profile picture.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-profile-update-image">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/profile/update-image" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "image=@C:\Users\AWAREF\AppData\Local\Temp\php4E59.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/profile/update-image"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-profile-update-image">
+</span>
+<span id="execution-results-POSTapi-v2-profile-update-image" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-profile-update-image"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-profile-update-image"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-profile-update-image" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-profile-update-image"></code></pre>
+</span>
+<form id="form-POSTapi-v2-profile-update-image" data-method="POST"
+      data-path="api/v2/profile/update-image"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"multipart\/form-data","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-profile-update-image', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/profile/update-image</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>image</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
+                <input type="file"
+               name="image"
+               data-endpoint="POSTapi-v2-profile-update-image"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>New image.</p>
+        </p>
+        </form>
+
+        <h1 id="categories">Categories</h1>
+
+    
+
+            <h2 id="categories-GETapi-v2-sub-categories--id-">Get all sub categories.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-sub-categories--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/sub-categories/18" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/sub-categories/18"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-sub-categories--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 596
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [],
+    &quot;success&quot;: true,
+    &quot;status&quot;: 200
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-sub-categories--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-sub-categories--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-sub-categories--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-sub-categories--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-sub-categories--id-"></code></pre>
+</span>
+<form id="form-GETapi-v2-sub-categories--id-" data-method="GET"
+      data-path="api/v2/sub-categories/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-sub-categories--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/sub-categories/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-v2-sub-categories--id-"
+               value="18"
+               data-component="url" hidden>
+    <br>
+<p>parent category id.</p>
+            </p>
+                    </form>
+
+            <h2 id="categories-GETapi-v2-categories">Get all categories.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-categories">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/categories" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/categories"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-categories">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 597
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Route [api.products.category] not defined.&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\Routing\\Exception\\RouteNotFoundException&quot;,
+    &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php&quot;,
+    &quot;line&quot;: 444,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php&quot;,
+            &quot;line&quot;: 739,
+            &quot;function&quot;: &quot;route&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\UrlGenerator&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\app\\Http\\Resources\\V2\\CategoryCollection.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;route&quot;
+        },
+        {
+            &quot;function&quot;: &quot;App\\Http\\Resources\\V2\\{closure}&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Resources\\V2\\CategoryCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Collection.php&quot;,
+            &quot;line&quot;: 695,
+            &quot;function&quot;: &quot;array_map&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\app\\Http\\Resources\\V2\\CategoryCollection.php&quot;,
+            &quot;line&quot;: 25,
+            &quot;function&quot;: &quot;map&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Support\\Collection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\JsonResource.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;toArray&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Resources\\V2\\CategoryCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\ResourceResponse.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;resolve&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\JsonResource.php&quot;,
+            &quot;line&quot;: 231,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\ResourceResponse&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\ResourceCollection.php&quot;,
+            &quot;line&quot;: 117,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 802,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\ResourceCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 789,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 721,
+            &quot;function&quot;: &quot;prepareResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\app\\Http\\Middleware\\AppLanguage.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\AppLanguage&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 127,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 55,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php&quot;,
+            &quot;line&quot;: 33,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php&quot;,
+            &quot;line&quot;: 34,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 723,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 698,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 662,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php&quot;,
+            &quot;line&quot;: 60,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Barryvdh\\Debugbar\\Middleware\\InjectDebugbar&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\fideloper\\proxy\\src\\TrustProxies.php&quot;,
+            &quot;line&quot;: 57,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fideloper\\Proxy\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 142,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 111,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 222,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 179,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 123,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 80,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 56,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 55,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 653,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 298,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1015,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 94,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 129,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-categories" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-categories"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-categories"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-categories"></code></pre>
+</span>
+<form id="form-GETapi-v2-categories" data-method="GET"
+      data-path="api/v2/categories"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-categories', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/categories</code></b>
+        </p>
+                    </form>
+
+        <h1 id="countries">Countries</h1>
+
+    
+
+            <h2 id="countries-GETapi-v2-countries">Get all Countries.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-countries">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/countries" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/countries"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-countries">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 592
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 51,
+            &quot;code&quot;: &quot;CK&quot;,
+            &quot;name&quot;: &quot;Cook Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 52,
+            &quot;code&quot;: &quot;CR&quot;,
+            &quot;name&quot;: &quot;Costa Rica&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 53,
+            &quot;code&quot;: &quot;CI&quot;,
+            &quot;name&quot;: &quot;Cote D'Ivoire (Ivory Coast)&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 54,
+            &quot;code&quot;: &quot;HR&quot;,
+            &quot;name&quot;: &quot;Croatia (Hrvatska)&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 56,
+            &quot;code&quot;: &quot;CY&quot;,
+            &quot;name&quot;: &quot;Cyprus&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 57,
+            &quot;code&quot;: &quot;CZ&quot;,
+            &quot;name&quot;: &quot;Czech Republic&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 63,
+            &quot;code&quot;: &quot;EC&quot;,
+            &quot;name&quot;: &quot;Ecuador&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 64,
+            &quot;code&quot;: &quot;EG&quot;,
+            &quot;name&quot;: &quot;Egypt&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 82,
+            &quot;code&quot;: &quot;DE&quot;,
+            &quot;name&quot;: &quot;Germany&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 84,
+            &quot;code&quot;: &quot;GI&quot;,
+            &quot;name&quot;: &quot;Gibraltar&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 86,
+            &quot;code&quot;: &quot;GL&quot;,
+            &quot;name&quot;: &quot;Greenland&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 88,
+            &quot;code&quot;: &quot;GP&quot;,
+            &quot;name&quot;: &quot;Guadeloupe&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 91,
+            &quot;code&quot;: &quot;XU&quot;,
+            &quot;name&quot;: &quot;Guernsey and Alderney&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 92,
+            &quot;code&quot;: &quot;GN&quot;,
+            &quot;name&quot;: &quot;Guinea&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 95,
+            &quot;code&quot;: &quot;HT&quot;,
+            &quot;name&quot;: &quot;Haiti&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 96,
+            &quot;code&quot;: &quot;HM&quot;,
+            &quot;name&quot;: &quot;Heard and McDonald Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 97,
+            &quot;code&quot;: &quot;HN&quot;,
+            &quot;name&quot;: &quot;Honduras&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 103,
+            &quot;code&quot;: &quot;IR&quot;,
+            &quot;name&quot;: &quot;Iran&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 104,
+            &quot;code&quot;: &quot;IQ&quot;,
+            &quot;name&quot;: &quot;Iraq&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 105,
+            &quot;code&quot;: &quot;IE&quot;,
+            &quot;name&quot;: &quot;Ireland&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 107,
+            &quot;code&quot;: &quot;IT&quot;,
+            &quot;name&quot;: &quot;Italy&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 108,
+            &quot;code&quot;: &quot;JM&quot;,
+            &quot;name&quot;: &quot;Jamaica&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 109,
+            &quot;code&quot;: &quot;JP&quot;,
+            &quot;name&quot;: &quot;Japan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 111,
+            &quot;code&quot;: &quot;JO&quot;,
+            &quot;name&quot;: &quot;Jordan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 112,
+            &quot;code&quot;: &quot;KZ&quot;,
+            &quot;name&quot;: &quot;Kazakhstan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 114,
+            &quot;code&quot;: &quot;KI&quot;,
+            &quot;name&quot;: &quot;Kiribati&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 116,
+            &quot;code&quot;: &quot;KR&quot;,
+            &quot;name&quot;: &quot;Korea South&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 117,
+            &quot;code&quot;: &quot;KW&quot;,
+            &quot;name&quot;: &quot;Kuwait&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 118,
+            &quot;code&quot;: &quot;KG&quot;,
+            &quot;name&quot;: &quot;Kyrgyzstan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 119,
+            &quot;code&quot;: &quot;LA&quot;,
+            &quot;name&quot;: &quot;Laos&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 121,
+            &quot;code&quot;: &quot;LB&quot;,
+            &quot;name&quot;: &quot;Lebanon&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 123,
+            &quot;code&quot;: &quot;LR&quot;,
+            &quot;name&quot;: &quot;Liberia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 124,
+            &quot;code&quot;: &quot;LY&quot;,
+            &quot;name&quot;: &quot;Libya&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 127,
+            &quot;code&quot;: &quot;LU&quot;,
+            &quot;name&quot;: &quot;Luxembourg&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 128,
+            &quot;code&quot;: &quot;MO&quot;,
+            &quot;name&quot;: &quot;Macau S.A.R.&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 131,
+            &quot;code&quot;: &quot;MW&quot;,
+            &quot;name&quot;: &quot;Malawi&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 133,
+            &quot;code&quot;: &quot;MV&quot;,
+            &quot;name&quot;: &quot;Maldives&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 134,
+            &quot;code&quot;: &quot;ML&quot;,
+            &quot;name&quot;: &quot;Mali&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 135,
+            &quot;code&quot;: &quot;MT&quot;,
+            &quot;name&quot;: &quot;Malta&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 136,
+            &quot;code&quot;: &quot;XM&quot;,
+            &quot;name&quot;: &quot;Man (Isle of)&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 137,
+            &quot;code&quot;: &quot;MH&quot;,
+            &quot;name&quot;: &quot;Marshall Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 138,
+            &quot;code&quot;: &quot;MQ&quot;,
+            &quot;name&quot;: &quot;Martinique&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 139,
+            &quot;code&quot;: &quot;MR&quot;,
+            &quot;name&quot;: &quot;Mauritania&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 140,
+            &quot;code&quot;: &quot;MU&quot;,
+            &quot;name&quot;: &quot;Mauritius&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 141,
+            &quot;code&quot;: &quot;YT&quot;,
+            &quot;name&quot;: &quot;Mayotte&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 142,
+            &quot;code&quot;: &quot;MX&quot;,
+            &quot;name&quot;: &quot;Mexico&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 143,
+            &quot;code&quot;: &quot;FM&quot;,
+            &quot;name&quot;: &quot;Micronesia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 144,
+            &quot;code&quot;: &quot;MD&quot;,
+            &quot;name&quot;: &quot;Moldova&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 145,
+            &quot;code&quot;: &quot;MC&quot;,
+            &quot;name&quot;: &quot;Monaco&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 146,
+            &quot;code&quot;: &quot;MN&quot;,
+            &quot;name&quot;: &quot;Mongolia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 147,
+            &quot;code&quot;: &quot;MS&quot;,
+            &quot;name&quot;: &quot;Montserrat&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 148,
+            &quot;code&quot;: &quot;MA&quot;,
+            &quot;name&quot;: &quot;Morocco&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 149,
+            &quot;code&quot;: &quot;MZ&quot;,
+            &quot;name&quot;: &quot;Mozambique&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 150,
+            &quot;code&quot;: &quot;MM&quot;,
+            &quot;name&quot;: &quot;Myanmar&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 151,
+            &quot;code&quot;: &quot;NA&quot;,
+            &quot;name&quot;: &quot;Namibia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 152,
+            &quot;code&quot;: &quot;NR&quot;,
+            &quot;name&quot;: &quot;Nauru&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 153,
+            &quot;code&quot;: &quot;NP&quot;,
+            &quot;name&quot;: &quot;Nepal&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 154,
+            &quot;code&quot;: &quot;AN&quot;,
+            &quot;name&quot;: &quot;Antilles&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 155,
+            &quot;code&quot;: &quot;NL&quot;,
+            &quot;name&quot;: &quot;Netherlands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 156,
+            &quot;code&quot;: &quot;NC&quot;,
+            &quot;name&quot;: &quot;New Caledonia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 157,
+            &quot;code&quot;: &quot;NZ&quot;,
+            &quot;name&quot;: &quot;New Zealand&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 158,
+            &quot;code&quot;: &quot;NI&quot;,
+            &quot;name&quot;: &quot;Nicaragua&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 159,
+            &quot;code&quot;: &quot;NE&quot;,
+            &quot;name&quot;: &quot;Niger&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 160,
+            &quot;code&quot;: &quot;NG&quot;,
+            &quot;name&quot;: &quot;Nigeria&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 161,
+            &quot;code&quot;: &quot;NU&quot;,
+            &quot;name&quot;: &quot;Niue&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 162,
+            &quot;code&quot;: &quot;NF&quot;,
+            &quot;name&quot;: &quot;Norfolk Island&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 163,
+            &quot;code&quot;: &quot;MP&quot;,
+            &quot;name&quot;: &quot;Northern Mariana Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 164,
+            &quot;code&quot;: &quot;NO&quot;,
+            &quot;name&quot;: &quot;Norway&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 165,
+            &quot;code&quot;: &quot;OM&quot;,
+            &quot;name&quot;: &quot;Oman&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 166,
+            &quot;code&quot;: &quot;PK&quot;,
+            &quot;name&quot;: &quot;Pakistan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 167,
+            &quot;code&quot;: &quot;PW&quot;,
+            &quot;name&quot;: &quot;Palau&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 168,
+            &quot;code&quot;: &quot;PS&quot;,
+            &quot;name&quot;: &quot;Palestinian Territory Occupied&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 169,
+            &quot;code&quot;: &quot;PA&quot;,
+            &quot;name&quot;: &quot;Panama&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 170,
+            &quot;code&quot;: &quot;PG&quot;,
+            &quot;name&quot;: &quot;Papua new Guinea&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 171,
+            &quot;code&quot;: &quot;PY&quot;,
+            &quot;name&quot;: &quot;Paraguay&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 172,
+            &quot;code&quot;: &quot;PE&quot;,
+            &quot;name&quot;: &quot;Peru&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 173,
+            &quot;code&quot;: &quot;PH&quot;,
+            &quot;name&quot;: &quot;Philippines&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 174,
+            &quot;code&quot;: &quot;PN&quot;,
+            &quot;name&quot;: &quot;Pitcairn Island&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 175,
+            &quot;code&quot;: &quot;PL&quot;,
+            &quot;name&quot;: &quot;Poland&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 181,
+            &quot;code&quot;: &quot;RU&quot;,
+            &quot;name&quot;: &quot;Russia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 182,
+            &quot;code&quot;: &quot;RW&quot;,
+            &quot;name&quot;: &quot;Rwanda&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 183,
+            &quot;code&quot;: &quot;SH&quot;,
+            &quot;name&quot;: &quot;Saint Helena&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 184,
+            &quot;code&quot;: &quot;KN&quot;,
+            &quot;name&quot;: &quot;Saint Kitts And Nevis&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 185,
+            &quot;code&quot;: &quot;LC&quot;,
+            &quot;name&quot;: &quot;Saint Lucia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 186,
+            &quot;code&quot;: &quot;PM&quot;,
+            &quot;name&quot;: &quot;Saint Pierre and Miquelon&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 190,
+            &quot;code&quot;: &quot;ST&quot;,
+            &quot;name&quot;: &quot;Sao Tome and Principe&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 191,
+            &quot;code&quot;: &quot;SA&quot;,
+            &quot;name&quot;: &quot;Saudi Arabia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 192,
+            &quot;code&quot;: &quot;SN&quot;,
+            &quot;name&quot;: &quot;Senegal&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 193,
+            &quot;code&quot;: &quot;RS&quot;,
+            &quot;name&quot;: &quot;Serbia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 201,
+            &quot;code&quot;: &quot;SO&quot;,
+            &quot;name&quot;: &quot;Somalia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 202,
+            &quot;code&quot;: &quot;ZA&quot;,
+            &quot;name&quot;: &quot;South Africa&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 203,
+            &quot;code&quot;: &quot;GS&quot;,
+            &quot;name&quot;: &quot;South Georgia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 204,
+            &quot;code&quot;: &quot;SS&quot;,
+            &quot;name&quot;: &quot;South Sudan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 205,
+            &quot;code&quot;: &quot;ES&quot;,
+            &quot;name&quot;: &quot;Spain&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 206,
+            &quot;code&quot;: &quot;LK&quot;,
+            &quot;name&quot;: &quot;Sri Lanka&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 207,
+            &quot;code&quot;: &quot;SD&quot;,
+            &quot;name&quot;: &quot;Sudan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 208,
+            &quot;code&quot;: &quot;SR&quot;,
+            &quot;name&quot;: &quot;Suriname&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 209,
+            &quot;code&quot;: &quot;SJ&quot;,
+            &quot;name&quot;: &quot;Svalbard And Jan Mayen Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 210,
+            &quot;code&quot;: &quot;SZ&quot;,
+            &quot;name&quot;: &quot;Swaziland&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 211,
+            &quot;code&quot;: &quot;SE&quot;,
+            &quot;name&quot;: &quot;Sweden&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 212,
+            &quot;code&quot;: &quot;CH&quot;,
+            &quot;name&quot;: &quot;Switzerland&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 213,
+            &quot;code&quot;: &quot;SY&quot;,
+            &quot;name&quot;: &quot;Syria&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 216,
+            &quot;code&quot;: &quot;TZ&quot;,
+            &quot;name&quot;: &quot;Tanzania&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 218,
+            &quot;code&quot;: &quot;TG&quot;,
+            &quot;name&quot;: &quot;Togo&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 219,
+            &quot;code&quot;: &quot;TK&quot;,
+            &quot;name&quot;: &quot;Tokelau&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 220,
+            &quot;code&quot;: &quot;TO&quot;,
+            &quot;name&quot;: &quot;Tonga&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 221,
+            &quot;code&quot;: &quot;TT&quot;,
+            &quot;name&quot;: &quot;Trinidad And Tobago&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 222,
+            &quot;code&quot;: &quot;TN&quot;,
+            &quot;name&quot;: &quot;Tunisia&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 223,
+            &quot;code&quot;: &quot;TR&quot;,
+            &quot;name&quot;: &quot;Turkey&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 224,
+            &quot;code&quot;: &quot;TM&quot;,
+            &quot;name&quot;: &quot;Turkmenistan&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 225,
+            &quot;code&quot;: &quot;TC&quot;,
+            &quot;name&quot;: &quot;Turks And Caicos Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 226,
+            &quot;code&quot;: &quot;TV&quot;,
+            &quot;name&quot;: &quot;Tuvalu&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 227,
+            &quot;code&quot;: &quot;UG&quot;,
+            &quot;name&quot;: &quot;Uganda&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 228,
+            &quot;code&quot;: &quot;UA&quot;,
+            &quot;name&quot;: &quot;Ukraine&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 229,
+            &quot;code&quot;: &quot;AE&quot;,
+            &quot;name&quot;: &quot;United Arab Emirates&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 230,
+            &quot;code&quot;: &quot;GB&quot;,
+            &quot;name&quot;: &quot;United Kingdom&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 231,
+            &quot;code&quot;: &quot;US&quot;,
+            &quot;name&quot;: &quot;United States&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 232,
+            &quot;code&quot;: &quot;UM&quot;,
+            &quot;name&quot;: &quot;United States Minor Outlying Islands&quot;,
+            &quot;status&quot;: 1
+        },
+        {
+            &quot;id&quot;: 245,
+            &quot;code&quot;: &quot;ZM&quot;,
+            &quot;name&quot;: &quot;Zambia&quot;,
+            &quot;status&quot;: 1
+        }
+    ],
+    &quot;success&quot;: true,
+    &quot;status&quot;: 200
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-countries" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-countries"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-countries"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-countries" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-countries"></code></pre>
+</span>
+<form id="form-GETapi-v2-countries" data-method="GET"
+      data-path="api/v2/countries"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-countries', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/countries</code></b>
+        </p>
+                    </form>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+            <h2 id="endpoints-GETapi--fallbackPlaceholder-">GET api/{fallbackPlaceholder}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi--fallbackPlaceholder-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/9?t{&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/9?t{&amp;gt;"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi--fallbackPlaceholder-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 580
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [],
+    &quot;success&quot;: false,
+    &quot;status&quot;: 404,
+    &quot;message&quot;: &quot;Invalid Route&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi--fallbackPlaceholder-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi--fallbackPlaceholder-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi--fallbackPlaceholder-"></code></pre>
+</span>
+<span id="execution-error-GETapi--fallbackPlaceholder-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi--fallbackPlaceholder-"></code></pre>
+</span>
+<form id="form-GETapi--fallbackPlaceholder-" data-method="GET"
+      data-path="api/{fallbackPlaceholder}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi--fallbackPlaceholder-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/{fallbackPlaceholder}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>fallbackPlaceholder</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="fallbackPlaceholder"
+               data-endpoint="GETapi--fallbackPlaceholder-"
+               value="9?t{>"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-v2-vendor-orders--order_code--download">GET api/v2/vendor/orders/{order_code}/download</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-orders--order_code--download">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/orders/13/download" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/orders/13/download"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-orders--order_code--download">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 583
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-orders--order_code--download" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-orders--order_code--download"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-orders--order_code--download"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-orders--order_code--download" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-orders--order_code--download"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-orders--order_code--download" data-method="GET"
+      data-path="api/v2/vendor/orders/{order_code}/download"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-orders--order_code--download', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/orders/{order_code}/download</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_code</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="order_code"
+               data-endpoint="GETapi-v2-vendor-orders--order_code--download"
+               value="13"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-v2-vendor-commission_history--order_code--download">GET api/v2/vendor/commission_history/{order_code}/download</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-commission_history--order_code--download">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/commission_history/qui/download" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/commission_history/qui/download"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-commission_history--order_code--download">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 586
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-commission_history--order_code--download" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-commission_history--order_code--download"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-commission_history--order_code--download"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-commission_history--order_code--download" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-commission_history--order_code--download"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-commission_history--order_code--download" data-method="GET"
+      data-path="api/v2/vendor/commission_history/{order_code}/download"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-commission_history--order_code--download', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/commission_history/{order_code}/download</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="order_code"
+               data-endpoint="GETapi-v2-vendor-commission_history--order_code--download"
+               value="qui"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+        <h1 id="messages">Messages</h1>
+
+    
+
+            <h2 id="messages-GETapi-v2-messages">Get all message.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-messages">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/messages" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/messages"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-messages">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 582
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-messages" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-messages"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-messages"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-messages" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-messages"></code></pre>
+</span>
+<form id="form-GETapi-v2-messages" data-method="GET"
+      data-path="api/v2/messages"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-messages', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/messages</code></b>
+        </p>
+                    </form>
+
+            <h2 id="messages-GETapi-v2-messages--id-">Get message Details.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-messages--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/messages/est" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/messages/est"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-messages--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 581
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-messages--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-messages--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-messages--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-messages--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-messages--id-"></code></pre>
+</span>
+<form id="form-GETapi-v2-messages--id-" data-method="GET"
+      data-path="api/v2/messages/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-messages--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/messages/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-v2-messages--id-"
+               value="est"
+               data-component="url" hidden>
+    <br>
+<p>Field to get review. Example 5.</p>
+            </p>
+                    </form>
+
+            <h2 id="messages-POSTapi-v2-messages-save">Store new message.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-messages-save">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/messages/save" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"subject\": \"est\",
+    \"details\": \"molestiae\",
+    \"attachments\": \"alias\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/messages/save"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "subject": "est",
+    "details": "molestiae",
+    "attachments": "alias"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-messages-save">
+</span>
+<span id="execution-results-POSTapi-v2-messages-save" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-messages-save"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-messages-save"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-messages-save" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-messages-save"></code></pre>
+</span>
+<form id="form-POSTapi-v2-messages-save" data-method="POST"
+      data-path="api/v2/messages/save"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-messages-save', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/messages/save</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>subject</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="subject"
+               data-endpoint="POSTapi-v2-messages-save"
+               value="est"
+               data-component="body" hidden>
+    <br>
+<p>. Example test.</p>
+        </p>
+                <p>
+            <b><code>details</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="details"
+               data-endpoint="POSTapi-v2-messages-save"
+               value="molestiae"
+               data-component="body" hidden>
+    <br>
+<p>. Example test.</p>
+        </p>
+                <p>
+            <b><code>attachments</code></b>&nbsp;&nbsp;<small>files</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="attachments"
+               data-endpoint="POSTapi-v2-messages-save"
+               value="alias"
+               data-component="body" hidden>
+    <br>
+<p>optional . Example test.</p>
+        </p>
+        </form>
+
+        <h1 id="newsletter">Newsletter</h1>
+
+    
+
+            <h2 id="newsletter-POSTapi-v2-newsletter-subscribe">Subscribe to the newsletter.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-newsletter-subscribe">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/newsletter/subscribe" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"example@email.com\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/newsletter/subscribe"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "example@email.com"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-newsletter-subscribe">
+</span>
+<span id="execution-results-POSTapi-v2-newsletter-subscribe" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-newsletter-subscribe"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-newsletter-subscribe"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-newsletter-subscribe" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-newsletter-subscribe"></code></pre>
+</span>
+<form id="form-POSTapi-v2-newsletter-subscribe" data-method="POST"
+      data-path="api/v2/newsletter/subscribe"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-newsletter-subscribe', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/newsletter/subscribe</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-v2-newsletter-subscribe"
+               value="example@email.com"
+               data-component="body" hidden>
+    <br>
+<p>The email of the vendor.</p>
+        </p>
+        </form>
+
+        <h1 id="products">Products</h1>
+
+    
+
+            <h2 id="products-GETapi-v2-products-best-seller">Get best sellers products.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-products-best-seller">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/products/best-seller" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/products/best-seller"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-products-best-seller">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 593
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Route [products.show] not defined.&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\Routing\\Exception\\RouteNotFoundException&quot;,
+    &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php&quot;,
+    &quot;line&quot;: 444,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php&quot;,
+            &quot;line&quot;: 739,
+            &quot;function&quot;: &quot;route&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\UrlGenerator&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\app\\Http\\Resources\\V2\\ProductMiniCollection.php&quot;,
+            &quot;line&quot;: 23,
+            &quot;function&quot;: &quot;route&quot;
+        },
+        {
+            &quot;function&quot;: &quot;App\\Http\\Resources\\V2\\{closure}&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Resources\\V2\\ProductMiniCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Collection.php&quot;,
+            &quot;line&quot;: 695,
+            &quot;function&quot;: &quot;array_map&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\app\\Http\\Resources\\V2\\ProductMiniCollection.php&quot;,
+            &quot;line&quot;: 26,
+            &quot;function&quot;: &quot;map&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Support\\Collection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\JsonResource.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;toArray&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Resources\\V2\\ProductMiniCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\ResourceResponse.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;resolve&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\JsonResource.php&quot;,
+            &quot;line&quot;: 231,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\ResourceResponse&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Resources\\Json\\ResourceCollection.php&quot;,
+            &quot;line&quot;: 117,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 802,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\ResourceCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 789,
+            &quot;function&quot;: &quot;toResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 721,
+            &quot;function&quot;: &quot;prepareResponse&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\app\\Http\\Middleware\\AppLanguage.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\AppLanguage&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 127,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 55,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php&quot;,
+            &quot;line&quot;: 33,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php&quot;,
+            &quot;line&quot;: 34,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 723,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 698,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 662,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php&quot;,
+            &quot;line&quot;: 60,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Barryvdh\\Debugbar\\Middleware\\InjectDebugbar&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\fideloper\\proxy\\src\\TrustProxies.php&quot;,
+            &quot;line&quot;: 57,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fideloper\\Proxy\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 142,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 111,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 222,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 179,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 123,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 80,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 56,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 55,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 653,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 298,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1015,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 94,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 129,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\laragon\\www\\mytreety\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-products-best-seller" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-products-best-seller"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-products-best-seller"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-products-best-seller" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-products-best-seller"></code></pre>
+</span>
+<form id="form-GETapi-v2-products-best-seller" data-method="GET"
+      data-path="api/v2/products/best-seller"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-products-best-seller', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/products/best-seller</code></b>
+        </p>
+                    </form>
+
+        <h1 id="sustainability">Sustainability</h1>
+
+    
+
+            <h2 id="sustainability-GETapi-v2-sustainabilities">Get All Sustainability icons.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-sustainabilities">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/sustainabilities" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/sustainabilities"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-sustainabilities">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 595
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Recyclable&quot;,
+            &quot;image&quot;: &quot;uploads/all/KrGfpwxPXdezipcMz5hZpnfkUJfnTR8WqqvUb4On.png&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;100% Natural Ingredients&quot;,
+            &quot;image&quot;: &quot;uploads/all/U6XaUl6C5P6Kntq2ZxE3bQ1oz1fIqiLaCKPhpkD8.png&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;100% Organic&quot;,
+            &quot;image&quot;: &quot;uploads/all/PedlglSJwdlvSljOBrYPVpHKqWctghUry4qFz8gu.png&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;name&quot;: &quot;Biodegradable&quot;,
+            &quot;image&quot;: &quot;uploads/all/V7WvnKVgBbLNpokk4gtvsZttkvjFEg5zVBHllwMg.png&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;name&quot;: &quot;Climate Neutral&quot;,
+            &quot;image&quot;: &quot;uploads/all/raGXWMEsy7njX7Sf38ZlrsQTCAtqHFzd3bY9t2EN.png&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;name&quot;: &quot;Compostable&quot;,
+            &quot;image&quot;: &quot;uploads/all/kbUXVZgt3pwzM3drpwdmHbf3zt2bbMUIAPXu2zjg.png&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;name&quot;: &quot;Cradle to Cradle&quot;,
+            &quot;image&quot;: &quot;uploads/all/iZW5KivNWkIi4Q7g1rpCt4L8LCfZdSPoxvQhShBB.png&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;name&quot;: &quot;Cruelty Free&quot;,
+            &quot;image&quot;: &quot;uploads/all/3sF4HelJuYi46WESHvAfvIF33saRmtBWZIdCQjps.png&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;name&quot;: &quot;Fair Trade&quot;,
+            &quot;image&quot;: &quot;uploads/all/10B6ttWYZBzlPerPJiIvjjbCj6qVMYBvYp8dVKc1.png&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;name&quot;: &quot;Handmade&quot;,
+            &quot;image&quot;: &quot;uploads/all/XVtjmhJsW39kTK4e3HosZfCzeR5ROkO1zPxJj41S.png&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;name&quot;: &quot;Helping Hand&quot;,
+            &quot;image&quot;: &quot;uploads/all/PmptIS6y6otmqJXmeXsq1uxxPrI5YUg2aUgc0DyE.png&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;name&quot;: &quot;Locally Sourced&quot;,
+            &quot;image&quot;: &quot;uploads/all/cSqwqSash9tFJ3uyiv0evNg2X9K3TYgUpNxFf5EA.png&quot;
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;name&quot;: &quot;No GMO&quot;,
+            &quot;image&quot;: &quot;uploads/all/BYui4oDRCODIV7KCV9yXPq01oJxRyccgYkLFLEV8.png&quot;
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;name&quot;: &quot;Plants a Tree&quot;,
+            &quot;image&quot;: &quot;uploads/all/ON6JeO2HqcIQlu4tG3eVtcoftGKyR9fLnoXQ0osP.png&quot;
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;name&quot;: &quot;Plastic Free&quot;,
+            &quot;image&quot;: &quot;uploads/all/ixiBBwMDgk2gCWVGY0gsCaaIR4OkAObL3RM1hRqS.png&quot;
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;name&quot;: &quot;Recycled Content&quot;,
+            &quot;image&quot;: &quot;uploads/all/diXlyXUSji1WhoOK9GyMhQr6LvJ0IPxNokhQrjwi.png&quot;
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;name&quot;: &quot;Safe and Fair Labour&quot;,
+            &quot;image&quot;: &quot;uploads/all/dljLgDyap0lfQK43CV5wTIaO3YCkN3ejOURfXLDv.png&quot;
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;name&quot;: &quot;Sustainable Manufacturing&quot;,
+            &quot;image&quot;: &quot;uploads/all/220reHtOhzVw5m81pJmVxbG0Mliwt72GwbWDAr6a.png&quot;
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;name&quot;: &quot;Sustainable Packaging&quot;,
+            &quot;image&quot;: &quot;uploads/all/4RyeV7Zn7VRDZu0eCf6PK8kGHtj56f8N9MLA3rsJ.png&quot;
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;name&quot;: &quot;Upcycled Content&quot;,
+            &quot;image&quot;: &quot;uploads/all/S4te0TT70SVN2a79eePKnjT3nLgrE71lqeiKhkZR.png&quot;
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;name&quot;: &quot;Vegan&quot;,
+            &quot;image&quot;: &quot;uploads/all/gAsHqkY0CgcEYP4bcAn9O0acCbbYPN3lwbAVo1Hv.png&quot;
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;name&quot;: &quot;Women Owned&quot;,
+            &quot;image&quot;: &quot;uploads/all/vjGJPA11FyebV196NqpjFjWNt9c0s1yzI8FSbXsP.png&quot;
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;name&quot;: &quot;IVN Best&quot;,
+            &quot;image&quot;: &quot;uploads/all/m0VZrqte8dZHsyg8elqNOLn5iaoqMeLu5D4mFvT0.png&quot;
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;name&quot;: &quot;GOTS&quot;,
+            &quot;image&quot;: &quot;uploads/all/0NRn7FbMrWJBKZdk38ipeFiEaiR2l5gHRP130vHs.png&quot;
+        },
+        {
+            &quot;id&quot;: 28,
+            &quot;name&quot;: &quot;Family Business&quot;,
+            &quot;image&quot;: &quot;uploads/all/uxyh5zLQwMPRnWdUNZtgwgYilIbcTs8oVuoIjzlf.png&quot;
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;name&quot;: &quot;testtt&quot;,
+            &quot;image&quot;: &quot;uploads/all/M10NP3ogLm181lR9JgWocM0e46A5fTtOvVmXjocA.png&quot;
+        },
+        {
+            &quot;id&quot;: 31,
+            &quot;name&quot;: &quot;www&quot;,
+            &quot;image&quot;: &quot;&quot;
+        }
+    ],
+    &quot;success&quot;: true,
+    &quot;status&quot;: 200
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-sustainabilities" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-sustainabilities"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-sustainabilities"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-sustainabilities" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-sustainabilities"></code></pre>
+</span>
+<form id="form-GETapi-v2-sustainabilities" data-method="GET"
+      data-path="api/v2/sustainabilities"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-sustainabilities', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/sustainabilities</code></b>
+        </p>
+                    </form>
+
+            <h2 id="sustainability-GETapi-v2-charities">Get All Charities.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-charities">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/charities" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/charities"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-charities">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 594
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;SankalpTaru Foundation&quot;,
+            &quot;description&quot;: &quot;Afforestation and reforestation non profit working PAN India. Have developer green patches on community barren lands. Also, planted fruit bearing saplings in farmers fields to provide them additional source of sustainable livelihood. Planted and survived more than 3 million trees and wish to plant millions more to make this planet greener and better for the future.&quot;,
+            &quot;image&quot;: &quot;uploads/all/w1zVRexe1dyYOfMLMxFKGglPJooPZGTNAwUc32dQ.png&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;SEED Madagascar&quot;,
+            &quot;description&quot;: &quot;We implement sustainable development projects spanning four key areas - conservation, community health, education and livelihoods, in the southeast of Madagascar.  Madagascar is one of the world&rsquo;s biodiversity hotspots and also home to some of the world&rsquo;s poorest people. Our aim is to establish long-term impact, in partnership with the communities, for the benefit of people and planet.&quot;,
+            &quot;image&quot;: &quot;uploads/all/jVX1bHrsybteYqEqwb8zX2Hy1X6r9dv65uEcDpaX.png&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;name&quot;: &quot;APOPO&quot;,
+            &quot;description&quot;: &quot;APOPO is a global non-profit that trains detection animals (nicknamed HeroRATs and HeroDOGs) to use their amazing sense of smell to save lives. Our animals, as well as brave handlers and deminers, are responsible for finding and destroying leftover landmines and other explosives in post-conflict countries like Cambodia, Angola, Zimbabwe and South Sudan. Clearing minefields not only saves lives but releasing safe land into communities for development allows people to rebuild their lives and livelihoods. This also protects threatened species affected by these remnants of war, such as African elephants. Innovative research is carried out by APOPO using tuberculosis (TB) detection rats as a cost-efficient, rapid diagnostic tool. Integrating these HeroRATs boosts patient detection rates of partner clinics by 40% in three high TB-burden countries. As global attention and funding moved to support the Covid-19 response, this has devastated TB-control efforts worldwide. It is even more critical to find, treat and stop the spread of TB as quickly as possible.&quot;,
+            &quot;image&quot;: &quot;uploads/all/kqHpPRYczYzgAGbCxtCHEyIEVLAIte0imqvYAPPl.png&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://mytreety.test/api/v2/charities?page=1&quot;,
+        &quot;last&quot;: &quot;http://mytreety.test/api/v2/charities?page=2&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: &quot;http://mytreety.test/api/v2/charities?page=2&quot;
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 2,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://mytreety.test/api/v2/charities?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://mytreety.test/api/v2/charities?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://mytreety.test/api/v2/charities?page=2&quot;,
+                &quot;label&quot;: &quot;Next &raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://mytreety.test/api/v2/charities&quot;,
+        &quot;per_page&quot;: 3,
+        &quot;to&quot;: 3,
+        &quot;total&quot;: 5
+    },
+    &quot;success&quot;: true,
+    &quot;status&quot;: 200
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-charities" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-charities"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-charities"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-charities" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-charities"></code></pre>
+</span>
+<form id="form-GETapi-v2-charities" data-method="GET"
+      data-path="api/v2/charities"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-charities', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/charities</code></b>
+        </p>
+                    </form>
+
+        <h1 id="upload">Upload</h1>
+
+    
+
+            <h2 id="upload-POSTapi-v2-aws-create-signedurl">Create Signed Url.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-aws-create-signedurl">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/aws/create/signedurl" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"folder\": \"users\",
+    \"extention\": \"png\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/aws/create/signedurl"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "folder": "users",
+    "extention": "png"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-aws-create-signedurl">
+</span>
+<span id="execution-results-POSTapi-v2-aws-create-signedurl" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-aws-create-signedurl"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-aws-create-signedurl"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-aws-create-signedurl" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-aws-create-signedurl"></code></pre>
+</span>
+<form id="form-POSTapi-v2-aws-create-signedurl" data-method="POST"
+      data-path="api/v2/aws/create/signedurl"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-aws-create-signedurl', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/aws/create/signedurl</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>folder</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="folder"
+               data-endpoint="POSTapi-v2-aws-create-signedurl"
+               value="users"
+               data-component="body" hidden>
+    <br>
+<p>.</p>
+        </p>
+                <p>
+            <b><code>extention</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="extention"
+               data-endpoint="POSTapi-v2-aws-create-signedurl"
+               value="png"
+               data-component="body" hidden>
+    <br>
+<p>.</p>
+        </p>
+        </form>
+
+        <h1 id="vendor-dashboard">Vendor Dashboard</h1>
+
+    
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-products">Get Products list.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-products">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/products" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/products"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-products">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 590
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-products" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-products"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-products"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-products" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-products"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-products" data-method="GET"
+      data-path="api/v2/vendor/products"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-products', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/products</code></b>
+        </p>
+                    </form>
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-commission_history">Get Commission history list.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-commission_history">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/commission_history?date_range_from=delectus&amp;date_range_to=commodi" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/commission_history"
+);
+
+const params = {
+    "date_range_from": "delectus",
+    "date_range_to": "commodi",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-commission_history">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 587
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-commission_history" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-commission_history"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-commission_history"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-commission_history" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-commission_history"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-commission_history" data-method="GET"
+      data-path="api/v2/vendor/commission_history"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-commission_history', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/commission_history</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>date_range_from</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="date_range_from"
+               data-endpoint="GETapi-v2-vendor-commission_history"
+               value="delectus"
+               data-component="query" hidden>
+    <br>
+<p>optional Field to date filter by. Example 2022-06-08.</p>
+            </p>
+                    <p>
+                <b><code>date_range_to</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="date_range_to"
+               data-endpoint="GETapi-v2-vendor-commission_history"
+               value="commodi"
+               data-component="query" hidden>
+    <br>
+<p>optional Field to  date filter by. Example 2022-06-08.</p>
+            </p>
+                </form>
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-orders">Get Vendor Orders list.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/orders?search=et" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/orders"
+);
+
+const params = {
+    "search": "et",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-orders">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 585
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-orders"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-orders"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-orders" data-method="GET"
+      data-path="api/v2/vendor/orders"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/orders</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="search"
+               data-endpoint="GETapi-v2-vendor-orders"
+               value="et"
+               data-component="query" hidden>
+    <br>
+<p>optional Field to filter by. Example 20220426-20135421.</p>
+            </p>
+                </form>
+
+            <h2 id="vendor-dashboard-POSTapi-v2-vendor-orders--order_code--update_tracking_code">Update tracking code.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-vendor-orders--order_code--update_tracking_code">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mytreety.test/api/v2/vendor/orders/9/update_tracking_code" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"tracking_code\": 0,
+    \"tracking_carrier\": \"veritatis\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/orders/9/update_tracking_code"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "tracking_code": 0,
+    "tracking_carrier": "veritatis"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-vendor-orders--order_code--update_tracking_code">
+</span>
+<span id="execution-results-POSTapi-v2-vendor-orders--order_code--update_tracking_code" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-vendor-orders--order_code--update_tracking_code"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-vendor-orders--order_code--update_tracking_code"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-vendor-orders--order_code--update_tracking_code" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-vendor-orders--order_code--update_tracking_code"></code></pre>
+</span>
+<form id="form-POSTapi-v2-vendor-orders--order_code--update_tracking_code" data-method="POST"
+      data-path="api/v2/vendor/orders/{order_code}/update_tracking_code"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-vendor-orders--order_code--update_tracking_code', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/vendor/orders/{order_code}/update_tracking_code</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_code</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="order_code"
+               data-endpoint="POSTapi-v2-vendor-orders--order_code--update_tracking_code"
+               value="9"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>tracking_code</code></b>&nbsp;&nbsp;<small>number</small>  &nbsp;
+                <input type="number"
+               name="tracking_code"
+               data-endpoint="POSTapi-v2-vendor-orders--order_code--update_tracking_code"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Field tracking_code. Example 12345.</p>
+        </p>
+                <p>
+            <b><code>tracking_carrier</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="tracking_carrier"
+               data-endpoint="POSTapi-v2-vendor-orders--order_code--update_tracking_code"
+               value="veritatis"
+               data-component="body" hidden>
+    <br>
+<p>Field tracking_carrier. Example DHL.</p>
+        </p>
+        </form>
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-orders--order_code-">Get Order Details.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-orders--order_code-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/orders/unde" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/orders/unde"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-orders--order_code-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 584
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-orders--order_code-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-orders--order_code-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-orders--order_code-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-orders--order_code-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-orders--order_code-"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-orders--order_code-" data-method="GET"
+      data-path="api/v2/vendor/orders/{order_code}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-orders--order_code-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/orders/{order_code}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="order_code"
+               data-endpoint="GETapi-v2-vendor-orders--order_code-"
+               value="unde"
+               data-component="url" hidden>
+    <br>
+<p>Field to get order. Example 20220426-20135421.</p>
+            </p>
+                    </form>
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-products-reviews">Get Products reviews list.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-products-reviews">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/products/reviews" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/products/reviews"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-products-reviews">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 589
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-products-reviews" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-products-reviews"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-products-reviews"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-products-reviews" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-products-reviews"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-products-reviews" data-method="GET"
+      data-path="api/v2/vendor/products/reviews"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-products-reviews', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/products/reviews</code></b>
+        </p>
+                    </form>
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-products-reviews--id-">Get Review Details.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-products-reviews--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/products/reviews/distinctio" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/products/reviews/distinctio"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-products-reviews--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 588
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-products-reviews--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-products-reviews--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-products-reviews--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-products-reviews--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-products-reviews--id-"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-products-reviews--id-" data-method="GET"
+      data-path="api/v2/vendor/products/reviews/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-products-reviews--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/products/reviews/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-v2-vendor-products-reviews--id-"
+               value="distinctio"
+               data-component="url" hidden>
+    <br>
+<p>Field to get review. Example 5.</p>
+            </p>
+                    </form>
+
+            <h2 id="vendor-dashboard-GETapi-v2-vendor-dashboard">Get Dashboard data.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-vendor-dashboard">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mytreety.test/api/v2/vendor/dashboard" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mytreety.test/api/v2/vendor/dashboard"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-vendor-dashboard">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 600
+x-ratelimit-remaining: 591
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-vendor-dashboard" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-vendor-dashboard"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-vendor-dashboard"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-vendor-dashboard" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-vendor-dashboard"></code></pre>
+</span>
+<form id="form-GETapi-v2-vendor-dashboard" data-method="GET"
+      data-path="api/v2/vendor/dashboard"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-vendor-dashboard', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/vendor/dashboard</code></b>
+        </p>
+                    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
